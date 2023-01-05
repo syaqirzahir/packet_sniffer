@@ -7,3 +7,7 @@ Guna Netbeans
 2. library jpcap
 
 Extract guna zip kalau guna netbeans.
+
+Contoh packet sniffer ni running
+
+1.<img src="Packetsniffertest\1.png" alt="Alt text" title="Optional title">
