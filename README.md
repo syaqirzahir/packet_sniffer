@@ -1,6 +1,5 @@
 # packet-sniffer
 
-Aufa dengan Syaqir punya part untuk Packet Sniffer
 Guna Netbeans
 
 1. Java 1.8
