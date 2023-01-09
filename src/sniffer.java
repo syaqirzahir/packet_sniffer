@@ -263,7 +263,185 @@ public class sniffer extends javax.swing.JFrame {
         pack();
     }// </editor-fold>       
 
-          
+  /*  @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        jMenuBar2 = new javax.swing.JMenuBar();
+        jMenu2 = new javax.swing.JMenu();
+        jMenu3 = new javax.swing.JMenu();
+        jMenu4 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jToolBar1 = new javax.swing.JToolBar();
+        listButton = new java.awt.Button();
+        jLabel1 = new javax.swing.JLabel();
+        filter_options = new javax.swing.JComboBox<>();
+        captureButton = new java.awt.Button();
+        stopButton = new java.awt.Button();
+        saveButton = new java.awt.Button();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable(){
+            public boolean isCellEditable(int row, int column){
+                return false;
+            }
+        };
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextArea2 = new javax.swing.JTextArea();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+
+        jMenu2.setText("File");
+        jMenuBar2.add(jMenu2);
+
+        jMenu3.setText("Edit");
+        jMenuBar2.add(jMenu3);
+
+        jMenu4.setText("jMenu4");
+
+        jMenuItem1.setText("jMenuItem1");
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("ZARA Packet Sniffer");
+        setName("ZARA Packet Sniffer"); // NOI18N
+
+        jToolBar1.setRollover(true);
+
+        listButton.setActionCommand("List Interfaces");
+        listButton.setBackground(new java.awt.Color(0, 0, 102));
+        listButton.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        listButton.setForeground(new java.awt.Color(255, 255, 255));
+        listButton.setLabel("List Interfaces");
+        listButton.setPreferredSize(new java.awt.Dimension(90, 26));
+        listButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                listButtonActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(listButton);
+
+        jLabel1.setText(" Filter");
+        jToolBar1.add(jLabel1);
+
+        filter_options.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "---", "TCP", "UDP", "ICMP" }));
+        filter_options.setPreferredSize(new java.awt.Dimension(320, 24));
+        filter_options.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                filter_optionsActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(filter_options);
+
+        captureButton.setBackground(new java.awt.Color(0, 204, 0));
+        captureButton.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        captureButton.setLabel("Capture");
+        captureButton.setPreferredSize(new java.awt.Dimension(83, 24));
+        captureButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                captureButtonActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(captureButton);
+
+        stopButton.setBackground(new java.awt.Color(255, 0, 51));
+        stopButton.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        stopButton.setLabel("Stop");
+        stopButton.setPreferredSize(new java.awt.Dimension(83, 24));
+        stopButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                stopButtonActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(stopButton);
+
+        saveButton.setLabel("Save");
+        saveButton.setPreferredSize(new java.awt.Dimension(83, 24));
+        saveButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveButtonActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(saveButton);
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "No.", "Length", "Source", "Destination", "Protocol"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
+        jScrollPane4.setViewportView(jTable1);
+
+        jTextArea1.setEditable(false);
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
+
+        jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+
+        jTextArea2.setEditable(false);
+        jTextArea2.setColumns(20);
+        jTextArea2.setRows(5);
+        jScrollPane2.setViewportView(jTextArea2);
+
+        jLabel2.setText("Packet info:");
+
+        jLabel3.setText("Hex view:");
+        setJMenuBar(jMenuBar1);
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane4)
+            .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jScrollPane1)
+            .addComponent(jScrollPane2)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 9, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel3)
+                .addGap(1, 1, 1)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
+*/
+    
+    
+    
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
 
         Object obj = jTable1.getModel().getValueAt(jTable1.getSelectedRow(), 0);
