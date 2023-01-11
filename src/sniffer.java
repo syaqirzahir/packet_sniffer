@@ -127,8 +127,8 @@ public class sniffer extends javax.swing.JFrame {
         jMenuItem1.setText("jMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("BOYZ Packet Sniffer");
-        setName("BOYZ Packet Sniffer"); // NOI18N
+        setTitle("PSIDer Packet Sniffer");
+        setName("PSIDer Packet Sniffer"); // NOI18N
 
         jToolBar1.setRollover(true);
 
@@ -179,6 +179,7 @@ public class sniffer extends javax.swing.JFrame {
         });
         jToolBar1.add(stopButton);
 
+        saveButton.setBackground(new java.awt.Color(255, 255, 102));
         saveButton.setLabel("Save");
         saveButton.setPreferredSize(new java.awt.Dimension(83, 24));
         saveButton.addActionListener(new java.awt.event.ActionListener() {
@@ -238,13 +239,12 @@ public class sniffer extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane1)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
                             .addComponent(jLabel2))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -255,7 +255,7 @@ public class sniffer extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel3)
                 .addGap(1, 1, 1)
@@ -343,15 +343,6 @@ public class sniffer extends javax.swing.JFrame {
         listButton.setEnabled(false);
     }//GEN-LAST:event_captureButtonActionPerformed
 
-    private void stopButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stopButtonActionPerformed
-        // TODO add your handling code here:
-        CaptureState = false;
-        THREAD.finished();
-        saveButton.setEnabled(true);
-        filter_options.setEnabled(true);
-        listButton.setEnabled(true);
-    }//GEN-LAST:event_stopButtonActionPerformed
-
     private void listButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listButtonActionPerformed
         // TODO add your handling code here:
         InterfacesWindow nw = new InterfacesWindow();
@@ -391,6 +382,15 @@ public class sniffer extends javax.swing.JFrame {
     private void filter_optionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_filter_optionsActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_filter_optionsActionPerformed
+
+    private void stopButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stopButtonActionPerformed
+        // TODO add your handling code here:
+        CaptureState = false;
+        THREAD.finished();
+        saveButton.setEnabled(true);
+        filter_options.setEnabled(true);
+        listButton.setEnabled(true);
+    }//GEN-LAST:event_stopButtonActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
