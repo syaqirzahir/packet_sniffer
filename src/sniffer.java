@@ -95,8 +95,10 @@ public class sniffer extends javax.swing.JFrame {
         jMenu3 = new javax.swing.JMenu();
         jMenu4 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
+        jDialog1 = new javax.swing.JDialog();
         jToolBar1 = new javax.swing.JToolBar();
         listButton = new java.awt.Button();
+        jToggleButton1 = new javax.swing.JToggleButton();
         jLabel1 = new javax.swing.JLabel();
         filter_options = new javax.swing.JComboBox<>();
         captureButton = new java.awt.Button();
@@ -126,6 +128,17 @@ public class sniffer extends javax.swing.JFrame {
 
         jMenuItem1.setText("jMenuItem1");
 
+        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
+        jDialog1.getContentPane().setLayout(jDialog1Layout);
+        jDialog1Layout.setHorizontalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jDialog1Layout.setVerticalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("PSIDer Packet Sniffer");
         setName("PSIDer Packet Sniffer"); // NOI18N
@@ -145,11 +158,25 @@ public class sniffer extends javax.swing.JFrame {
         });
         jToolBar1.add(listButton);
 
+        jToggleButton1.setBackground(new java.awt.Color(204, 204, 255));
+        jToggleButton1.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        jToggleButton1.setText("IP");
+        jToggleButton1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, java.awt.SystemColor.activeCaption, null, null));
+        jToggleButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jToggleButton1.setPreferredSize(new java.awt.Dimension(190, 16));
+        jToggleButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton1ActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(jToggleButton1);
+
         jLabel1.setText(" Filter");
         jToolBar1.add(jLabel1);
 
         filter_options.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "---", "TCP", "UDP", "ICMP" }));
-        filter_options.setPreferredSize(new java.awt.Dimension(320, 24));
+        filter_options.setPreferredSize(new java.awt.Dimension(700, 22));
         filter_options.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 filter_optionsActionPerformed(evt);
@@ -392,12 +419,19 @@ public class sniffer extends javax.swing.JFrame {
         listButton.setEnabled(true);
     }//GEN-LAST:event_stopButtonActionPerformed
 
+    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+        // TODO add your handling code here:
+        NewJFrame nw = new NewJFrame();
+        nw.show();
+    }//GEN-LAST:event_jToggleButton1ActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
+        System.out.println(System.getProperty("java.library.path"));
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -427,6 +461,7 @@ public class sniffer extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static java.awt.Button captureButton;
     public static javax.swing.JComboBox<String> filter_options;
+    private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -442,6 +477,7 @@ public class sniffer extends javax.swing.JFrame {
     public static javax.swing.JTable jTable1;
     public static javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
+    private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JToolBar jToolBar1;
     public static java.awt.Button listButton;
     public static java.awt.Button saveButton;
