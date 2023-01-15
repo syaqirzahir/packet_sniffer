@@ -207,7 +207,7 @@ public class sniffer extends javax.swing.JFrame {
         jToolBar1.add(stopButton);
 
         saveButton.setBackground(new java.awt.Color(255, 255, 102));
-        saveButton.setLabel("Save");
+        saveButton.setLabel("Exit");
         saveButton.setPreferredSize(new java.awt.Dimension(83, 24));
         saveButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -377,31 +377,33 @@ public class sniffer extends javax.swing.JFrame {
 
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
 
-        THREAD = new jpcap_thread() {
-            public Object construct() {
+//        THREAD = new jpcap_thread() {
+//            public Object construct() {
+//
+//                writer = null;
+//                try {
+//                    CAP = JpcapCaptor.openDevice(NETWORK_INTERFACES[INDEX], 65535, false, 20);
+//
+//                    writer = JpcapWriter.openDumpFile(CAP, "captured_data.txt");
+//                } catch (IOException ex) {
+//                    Logger.getLogger(sniffer.class.getName()).log(Level.SEVERE, null, ex);
+//                }
+//
+//                for (int i = 0; i < No; i++) {
+//                    writer.writePacket(packetList.get(i));
+//                }
+//
+//                return 0;
+//            }
+//
+//            public void finished() {
+//                this.interrupt();
+//            }
+//        };
+//
+//        THREAD.start(); 
 
-                writer = null;
-                try {
-                    CAP = JpcapCaptor.openDevice(NETWORK_INTERFACES[INDEX], 65535, false, 20);
-
-                    writer = JpcapWriter.openDumpFile(CAP, "captured_data.txt");
-                } catch (IOException ex) {
-                    Logger.getLogger(sniffer.class.getName()).log(Level.SEVERE, null, ex);
-                }
-
-                for (int i = 0; i < No; i++) {
-                    writer.writePacket(packetList.get(i));
-                }
-
-                return 0;
-            }
-
-            public void finished() {
-                this.interrupt();
-            }
-        };
-
-        THREAD.start();
+         setVisible(false); 
 
 
     }//GEN-LAST:event_saveButtonActionPerformed
