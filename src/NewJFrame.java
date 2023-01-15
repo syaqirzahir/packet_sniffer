@@ -2,6 +2,9 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import org.jsoup.select.Elements;
 public class NewJFrame extends javax.swing.JFrame {
 
     /**
@@ -25,14 +28,12 @@ public class NewJFrame extends javax.swing.JFrame {
         jTextArea1 = new javax.swing.JTextArea();
         jTextField1 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBackground(javax.swing.UIManager.getDefaults().getColor("Actions.Blue"));
-        setForeground(java.awt.SystemColor.menuText);
 
-        jButton1.setText("Enter");
+        jButton1.setText("Search IP");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -49,18 +50,20 @@ public class NewJFrame extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
-        jLabel1.setText("Type the website you wish to find the ip address.");
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel1.setText("IP INFORMATION");
 
-        jLabel2.setBackground(new java.awt.Color(153, 204, 255));
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel2.setText("IP INFORMATION");
-
-        jButton2.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
-        jButton2.setText("Exit");
+        jButton2.setText("Clear");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
+            }
+        });
+
+        jButton3.setText("Subdomains");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
             }
         });
 
@@ -71,39 +74,36 @@ public class NewJFrame extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(51, 51, 51)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
                         .addGap(33, 33, 33)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 552, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 603, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jButton1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(186, 186, 186)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(27, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(47, 47, 47))
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton3)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton2)))))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(16, 16, 16)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
+                    .addComponent(jButton2)
+                    .addComponent(jButton3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton2)
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 415, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(39, Short.MAX_VALUE))
         );
 
         pack();
@@ -123,12 +123,16 @@ public class NewJFrame extends javax.swing.JFrame {
                     "https://www.shodan.io/host/"+ str;
             final Document document = Jsoup.connect(url).get();
             jTextArea1.append("\nSHODAN\n");
-            System.out.println("\nSHODAN");
+            //System.out.println("\nSHODAN");
 
             for (Element row : document.select(
                     "table.table.u-full-width tr"
             )) {
-                if (row.select("td:nth-of-type(1)").text().equals("")) {
+                if (row.select("td:nth-of-type(1)").text().equals("") ){
+                        
+            
+                /*else if (row.select("td:nth-of-type(1)").text().equals("")) {
+                    jTextArea1.append("No data found");   */                
                     continue;
                 } else {
                     final String name = row.select("td:nth-of-type(1)").text();
@@ -147,12 +151,13 @@ public class NewJFrame extends javax.swing.JFrame {
                     "https://ipgeolocation.io/ip-location/"+ str;
             final Document document = Jsoup.connect(url).get();
             jTextArea1.append("\nIPGeoLocation\n");
-            System.out.println("\nIPGEO");
+            //System.out.println("\nIPGEO");
 
             for (Element row : document.select(
                     "table.table tr"
             )) {
                 if (row.select("td:nth-of-type(1)").text().equals("")) {
+                    //jTextArea1.append("No data found");
                     continue;
                 } else {
                     final String name = row.select("td:nth-of-type(1)").text();
@@ -166,11 +171,54 @@ public class NewJFrame extends javax.swing.JFrame {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
+        
+        try {
+            Document doc;
+            doc = Jsoup.connect("https://www.whois.com/whois/" +str).get();
+            Elements e = doc.select("div.df-block");
+        jTextArea1.append("\nWhoIs\n");
+        jTextArea1.append(e.text());
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+        
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-setVisible(false);        // TODO add your handling code here:
+        // TODO add your handling code here:
+        jTextArea1.setText("");
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        String str;
+        str = jTextField1.getText();
+        try {
+            final String url =
+                    "https://www.shodan.io/domain/" + str;
+            final Document document = Jsoup.connect(url).get();
+            System.out.println("\nSHODAN");
+
+            for (Element row : document.select(
+                    "table.u-full-width tr"
+            )) {
+                
+                if (row.select("td:nth-of-type(1)").text().equals("")) {
+                    continue;}
+                 else {
+                    final String name = row.select("td:nth-of-type(1)").text();
+                    final String value = row.select("td:nth-of-type(2)").text();
+                    final String values = row.select("td:nth-of-type(3)").text();
+                    jTextArea1.append(name + " : " + value + " : "+ values+'\n');
+
+                }
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -210,8 +258,8 @@ setVisible(false);        // TODO add your handling code here:
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
